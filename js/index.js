@@ -3,11 +3,11 @@ $( document ).ready(function() {
 
 
 	//actual page
-    var loadedHTML = '../index.html';
+    var navbar = '../navbar.php';
 
     //login form
 	var	form = '../login.php';
 
-	$('#loginform').load(form);
+	$('#navbar').load(navbar);
 
 });

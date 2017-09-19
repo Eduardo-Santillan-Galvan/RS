@@ -20,8 +20,7 @@ if (isset($_POST['submit'])) {
     $password=$_POST['password'];
 
     $_SESSION['login_user'] = $_POST['username'];
-    
-    //echo $username . " - " . $password . "<br>";
+    header("location: /"); // Redirecting To Other Page
 }
 
 //echo $_POST['username'] . " - " . $_POST['password'] . "<br>";
@@ -57,7 +56,7 @@ while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="../js/jquery-3.2.1.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="../bootstrap/bootstrap.min.js"></script>
 
 
  </head>

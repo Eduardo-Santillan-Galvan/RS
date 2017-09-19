@@ -1,7 +1,7 @@
 <?PHP
 
-include("./php/connection.php");
-include_once("./php/usefulScripts.php");
+include("./connection.php");
+include_once("./usefulScripts.php");
 
 session_start(); // Starting Session
 ConsoleLog("Session Starting");
@@ -10,7 +10,7 @@ $log = "";
 $error=''; // Variable To Store Error Message
 
 if(isset($_SESSION['login_user'])){
-  header("location: ./php/profile.php");
+  header("location: ./profile.php");
   consoleLog("Sesión iniciada.");
 }
 
@@ -45,16 +45,13 @@ if (isset($_POST['submit'])) {
 ?>
 
 <head>      
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
+  <!-- Default libraries -->
+  <script src="../js/jquery-3.2.1.js"></script>
+  <script src="../bootstrap/jsbootstrap.min.js"></script>
+  <link rel="stylesheet" href="../bootstrap/bootstrap.min.css">
 
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" >
-
-  <link rel="stylesheet" href="./css/styles.css" >
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- Personal styles -->
+  <link rel="stylesheet" href="../css/styles.css">
 
 </head>
 
