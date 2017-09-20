@@ -1,0 +1,38 @@
+Session try. 
+username: vimrc - password: vimrc
+user:vimrc 	 pwd: virmc
+Success.
+
+Session try. 
+username: vimrc - password: vimrc
+Failed.
+
+Session try. 
+username: root - password: 1234
+user:root 	 pwd: 1234
+Success.
+
+Session try. 
+username: vimrc - password: 123
+Failed.
+
+Session try. 
+username: vimrc - password: 1234
+user:vimrc 	 pwd: 1234
+Success.
+
+Session try. 
+username: vimrc - password: 1234
+user:vimrc 	 pwd: 1234
+Success.
+
+Session try. 
+username: vimrc - password: 1234
+user:vimrc 	 pwd: 1234
+Success.
+
+Session try. 
+username: vimrc - password: 1234
+user:vimrc 	 pwd: 1234
+Success.
+

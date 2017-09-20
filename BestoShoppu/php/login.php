@@ -1,13 +1,13 @@
 <?PHP
-
-include("./connection.php");
-include_once("./usefulScripts.php");
-
 session_start(); // Starting Session
-ConsoleLog("Session Starting");
 
-$log = "";
-$error=''; // Variable To Store Error Message
+include("connection.php");
+include_once("usefulScripts.php");
+
+$logfile = fopen("../log.txt", "a");
+
+$log = 'a';
+$error='a'; // Variable To Store Error Message
 
 if(isset($_SESSION['login_user'])){
   header("location: ./profile.php");
@@ -19,26 +19,41 @@ if (isset($_POST['submit'])) {
   // Define $username and $password
   $username=$_POST['username'];
   $password=$_POST['password'];
-    
-  $log = "username: " . $username . " - password: " . $password;
-  file_put_contents('./log.txt', $log, FILE_APPEND);
+  
+  $log = "Session try. \n";
+  $log .= "username: " . $username . " - password: " . $password . "\n";
+  //file_put_contents('./log.txt', $log, FILE_APPEND);
+
   $connection = Connect2DB();
   
-  $query = "SELECT * FROM users WHERE password='$password' AND username='$username'";
+  $query = "SELECT * FROM users WHERE username = '" . $username . "' AND password = '" . $password . "'";
   $result = $connection->query($query);
+  consoleLog("$result->num_rows");
+  //fetch tha data from the database
+  consoleLog("$query");
 
+  while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
+    $log .= "user:". $row['username'] . " \t pwd: " . $row['password'] . "\n";
+    
+  //echo "u";
+  }
+
+  fwrite($logfile, $log);
 
   $rows = $result->num_rows;
   if ($rows == 1) {
     $_SESSION['login_user']=$username; // Initializing Session
     consoleLog("Login succesful");
-    header("location: https://www.google.com.mx/"); // Redirecting To Other Page
+    fwrite($logfile, "Success.\n\n");
+    header("location: /"); // Redirecting To Other Page
   } else {
     $error = "Username or Password is invalid";
     consoleLog("No dice");
+    fwrite($logfile, "Failed.\n\n");
   }
 
     $connection->close(); // Closing Connection
+    fclose($logfile);
 }
 
 
