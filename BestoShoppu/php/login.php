@@ -20,38 +20,26 @@ if (isset($_POST['submit'])) {
   $username=$_POST['username'];
   $password=$_POST['password'];
   
-  $log = "Session try. \n";
-  $log .= "username: " . $username . " - password: " . $password . "\n";
-  //file_put_contents('./log.txt', $log, FILE_APPEND);
+  $log = "Intento de inicio de sesión. \n";
+  $log .= "Usuario: " . $username . " - Contraseña: " . $password . "\n";
 
   $connection = Connect2DB();
   
   $query = "SELECT * FROM users WHERE username = '" . $username . "' AND password = '" . $password . "'";
   $result = $connection->query($query);
-  consoleLog("$result->num_rows");
-  //fetch tha data from the database
-  consoleLog("$query");
-
-  while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
-    $log .= "user:". $row['username'] . " \t pwd: " . $row['password'] . "\n";
-    
-  //echo "u";
-  }
 
   fwrite($logfile, $log);
 
   $rows = $result->num_rows;
   if ($rows == 1) {
     $_SESSION['login_user']=$username; // Initializing Session
-    consoleLog("Login succesful");
-    fwrite($logfile, "Success.\n\n");
-    header("location: /"); // Redirecting To Other Page
+    fwrite($logfile, "Sesión iniciada.\n\n");
+    header("location: ../"); // Redirecting To Other Page
   } else {
     $error = "Username or Password is invalid";
     consoleLog("No dice");
-    fwrite($logfile, "Failed.\n\n");
+    fwrite($logfile, "Error en los datos.\n\n");
   }
-
     $connection->close(); // Closing Connection
     fclose($logfile);
 }
@@ -75,14 +63,10 @@ if (isset($_POST['submit'])) {
   <h2 class="form-signin-heading">Please Login</h2>
   <div class="input-group">
     <span class="input-group-addon" id="basic-addon1">@</span>
-
     <input type="text" name="username" class="form-control" placeholder="Username" required>
-
   </div>
   <label for="password" class="sr-only">Password</label>
-
   <input type="password" name="password" class="form-control" placeholder="Password" required>
-
-  <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Login</button>
-  <a class="btn btn-lg btn-primary btn-block" href="./php/register.php">Register</a>
+  <button class="btn btn-lg btn-primary btn-block" name="submit" type="submit">Iniciar Sesión</button>
+  <a class="btn btn-lg btn-primary btn-block" href="./php/register.php">Crear Cuenta</a>
 </form>

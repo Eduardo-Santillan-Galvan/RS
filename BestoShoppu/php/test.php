@@ -4,29 +4,6 @@ session_start(); // Starting Session
 include("connection.php");
 include_once("usefulScripts.php");
 
-if(isset($_SESSION['login_user'])){
-	//echo "Sesión iniciada.";
-echo '<h3><a href="logout.php">Click here to log out</a></h3>';
-}else{
-	//echo "No hay una sesión iniciada.<br>";
-}
-
-if (isset($_POST['submit'])) {
-  // Define $username and $password
-  $username=$_POST['username'];
-  $password=$_POST['password'];
-
-  $_SESSION['login_user'] = $_POST['username'];
-  header("location: /"); // Redirecting To Other Page
-}
-
-//echo $_POST['username'] . " - " . $_POST['password'] . "<br>";
-	
-	$connection = Connect2DB();
-	consoleLog("Before Query");
-	$query = "SELECT * FROM users";
-	$result = $connection->query($query);
-
 //fetch tha data from the database
 while ($row = $result->fetch_array(MYSQLI_ASSOC)) {
    

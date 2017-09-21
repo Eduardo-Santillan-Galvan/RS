@@ -5,22 +5,25 @@
   <meta charset="utf-8">
 
   <title>Shop</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <meta name="description" content="The HTML5 Herald">
-  <meta name="author" content="SitePoint">
 
+  <!-- Default libraries -->
+  <!-- No cargar bootstrap.min.js desde aquí, no funciona. -->
+  <link rel="stylesheet" href="./bootstrap/bootstrap.min.css">
   <script src="./js/jquery-3.2.1.js"></script>
+
+  <!-- Personal scripts -->
   <script type="text/javascript" src="./js/index.js"></script>
+  <!-- Personal styles -->
   <link rel="stylesheet" href="./css/styles.css?v=1.0">
 
   
 </head>
 
 	<body id="body" class="body">
-  <!-- Navigation Bar -->
+  <!-- Barra de navegación cargada desde "./navbar.php" por medio de "./js/index.js" -->
 	<div id="navbar" class="navbar"></div>
 
-  <!-- Body replaced my js -->
+  <!-- Fragmento que es reemplazado con cada carga desde "./js/navbar.js". -->
   <div id="main-body">BODY</div>
 
 

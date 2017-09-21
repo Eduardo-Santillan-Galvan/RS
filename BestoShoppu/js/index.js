@@ -1,15 +1,8 @@
 $( document ).ready(function() {
 	console.log( "index.js loaded" );
 
-
-	//actual page
+	//Barra de navegación. No cambiar.
     var navbar = './navbar.php';
-
-    //login form
-	var	form = './login.php';
-
 	$('#navbar').load(navbar);
-
-	
 
 });

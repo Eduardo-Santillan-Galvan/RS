@@ -12,23 +12,21 @@ session_start(); // Starting Session
 if(isset($_SESSION['login_user'])){
   consoleLog("Sesión iniciada.");
   $navbarFragment = '<li class="dropdown">'
-  . '<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'
-  . "Welcome, " . $_SESSION['login_user'] . "!" //Logged user name
-  . '<span class="caret"></span></a>'
-  . '<ul class="dropdown-menu">'
-  . '<li id="profile"><a href="#">Profile</a></li>'
+  .'<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">'
+  ."Bienvenido, " . $_SESSION['login_user'] . "!" //Logged user name
+  .'<span class="caret"></span></a>'
+  .'<ul class="dropdown-menu">'
+  .'<li id="profile"><a href="#">Profile</a></li>'
   .'<li role="separator" class="divider"></li>'
   .'<li><a href="./php/logout.php">Log out</a></li>' //Log out option
   .'</ul>'
   .'</li>';
 }else{
-  $navbarFragment = '<a href="./php/login.php">Log In</a>';
+  $navbarFragment = '<a href="./php/login.php">Iniciar sesión</a>';
 }
 
 ?>
 
-<!DOCTYPE html>
-<html>
 <head>
 <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1"> 
 	<title></title>
@@ -44,7 +42,7 @@ if(isset($_SESSION['login_user'])){
 
 </head>
 <body>
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top menu">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -54,7 +52,7 @@ if(isset($_SESSION['login_user'])){
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="/">Besto Shoppu</a>
+      <a class="navbar-brand" href="./">Besto Shoppu</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -62,9 +60,9 @@ if(isset($_SESSION['login_user'])){
       
 
       <ul class="nav navbar-nav">
-        <li><a href="#">Link</a></li>
+        <li><a href="#">Otro</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artículos<span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Action</a></li>
             <li><a href="#">Another action</a></li>
@@ -72,7 +70,7 @@ if(isset($_SESSION['login_user'])){
             <li role="separator" class="divider"></li>
             <li><a href="#">Separated link</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
+            <li id="all-items"><a href="#">Todos</a></li>
           </ul>
         </li>
       </ul>
@@ -96,4 +94,3 @@ if(isset($_SESSION['login_user'])){
   </div><!-- /.container-fluid -->
 </nav>
 </body>
-</html>

@@ -36,3 +36,26 @@ username: vimrc - password: 1234
 user:vimrc 	 pwd: 1234
 Success.
 
+Session try. 
+username: vimrc - password: 1234
+user:vimrc 	 pwd: 1234
+Success.
+
+Session try. 
+username: vimrc - password: 1234
+user:vimrc 	 pwd: 1234
+Success.
+
+Session try. 
+username: vimrc - password: 1234
+user:vimrc 	 pwd: 1234
+Success.
+
+Intento de inicio de sesión. 
+Usuario: vimrc - Contraseña: 1234
+Success.
+
+Intento de inicio de sesión. 
+Usuario: vimrc - Contraseña: 1234
+Sesión iniciada.
+
